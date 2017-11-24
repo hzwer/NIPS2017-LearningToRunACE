@@ -1,0 +1,10 @@
+
+*.py~
+
+*.pyc
+
+*.log
+
+*.local
+
+*.txt
