@@ -8,7 +8,7 @@ import multiprocessing,time,random,threading
 from multiprocessing import Process, Pipe, Queue
 # from osim.env import RunEnv
 
-ncpu = 4 # multiprocessing.cpu_count()
+ncpu = 1 # multiprocessing.cpu_count()
 
 # separate process that holds a separate RunEnv instance.
 # This has to be done since RunEnv() in the same process result in interleaved running of simulations.

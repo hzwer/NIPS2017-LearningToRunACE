@@ -17,7 +17,7 @@ $ source activate opensim-rl
 This version requires farming, before starting `train.py`, you should first start some farms by running `python farm.py` on each <u>SLAVE</u> machine you own. Then  create a `farmlist.py` in the working directory (on the <u>HOST</u> machine) with the following content:
 
 ```
-farmlist_base = [('127.0.0.1', 4), ('192.168.1.1',8)]
+farmlist_base = [('127.0.0.1', 4), ('192.168.1.1', 8)]
 
 # a farm of 4 cores is available on localhost, while a farm of 8 available on another machine.
 
@@ -28,4 +28,12 @@ farmlist_base = [('127.0.0.1', 4), ('192.168.1.1',8)]
 
 More information can be found in https://github.com/ctmakro/stanford-osrl
 
-Thanks to @ctmakro give us this frame
+Thanks to @ctmakro for providing us with this frame
+
+### test
+
+Test the model for 10 times in parallel and calculate the average score
+
+```
+python test.py
+```
