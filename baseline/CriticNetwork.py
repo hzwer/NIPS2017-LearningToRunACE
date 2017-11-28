@@ -39,7 +39,7 @@ class CriticNetwork(object):
     def target_train(self):
         critic_weights = self.model.get_weights()
         critic_target_weights = self.target_model.get_weights()
-        for i in xrange(len(critic_weights)):
+        for i in range(len(critic_weights)):
             critic_target_weights[i] = self.TAU * critic_weights[i] + (1 - self.TAU)* critic_target_weights[i]
         self.target_model.set_weights(critic_target_weights)
     

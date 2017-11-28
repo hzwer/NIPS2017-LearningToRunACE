@@ -2,7 +2,7 @@
 import numpy as np
 import random
 
-import cPickle as pickle
+import pickle as pickle
 
 # replay buffer per http://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html
 class rpm(object):

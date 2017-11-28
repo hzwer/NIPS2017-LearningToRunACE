@@ -19,7 +19,7 @@ def standalone_headless_isolated(pq, cq, plock):
     try:
         import traceback
         from osim.env import RunEnv
-        e = RunEnv(visualize = True)
+        e = RunEnv(visualize = args.visualize,obstacles=args.obstacles)
     except Exception as e:
         print('error on start of standalone')
         traceback.print_exc()
@@ -53,7 +53,7 @@ def standalone_headless_isolated(pq, cq, plock):
             #     raise Exception('pipe message received by headless is not a tuple')
 
             if msg[0] == 'reset':
-                o = e.reset(difficulty=3)
+                o = e.reset(difficulty=args.difficulty)
                 # conn.send(floatify(o))
                 cq.put(floatify(o))
                 # conn.put(floatify(o))
@@ -376,9 +376,15 @@ class farm:
         self.eip = eipool(ncpu if n is None else n)
 
 # expose the farm via Pyro4
-def main():
-    from pyro_helper import pyro_expose
-    pyro_expose(farm,20099,'farm')
 
 if __name__ == '__main__':
-    main()
+    from pyro_helper import pyro_expose
+    import argparse
+    parser = argparse.ArgumentParser(description="open the farm in your slave machine")
+    parser.add_argument('--gui',help='Start the program with a message box',
+            action = "store_true")
+    parser.add_argument('--visualize','-v',action = 'store_true',help='visualize the enviroment')
+    parser.add_argument('--obstacles','-o', help='the obstacle numbers of the environment',choices=range(0,11),default=3)
+    parser.add_argument('--difficulty','-d', help='the difficulty of the environment',choices=range(4),default=2)
+    args = parser.parse_args()
+    pyro_expose(farm,20099,'farm',has_gui = args.gui)

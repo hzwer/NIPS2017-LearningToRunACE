@@ -11,15 +11,16 @@ def pyro_connect(address,name):
     uri = 'PYRO:'+name+'@'+address
     return p4.Proxy(uri)
 
-def pyro_expose(c,port,name):
-#    def stop():
-#        print('stop() called')
-#        import os
-#        os._exit(1)
-#    from triggerbox import TriggerBox
-#    tb = TriggerBox(name+' server on '+str(port),
-#        ['stop server'],
-#        [stop])
+def pyro_expose(c,port,name,has_gui = True):
+    if has_gui : 
+        def stop():
+            print('stop() called')
+            import os
+            os._exit(1)
+        from triggerbox import TriggerBox
+        tb = TriggerBox(name+' server on '+str(port),
+            ['stop server'],
+            [stop])
 
     c = p4.behavior(instance_mode='single')(c)
     exposed = p4.expose(c)
