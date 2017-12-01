@@ -1,6 +1,6 @@
 # NIPS2017-LearningToRun
 
-A keras solution for 2nd plase [NIPS RL 2017 challenge](https://www.crowdai.org/challenges/nips-2017-learning-to-run/leaderboards?challenge_round_id=12).
+A keras solution for 2nd place [NIPS RL 2017 challenge](https://www.crowdai.org/challenges/nips-2017-learning-to-run/leaderboards?challenge_round_id=12).
 
 More details will be added in a few days
 
@@ -44,11 +44,13 @@ Thanks to @ctmakro for providing us with this frame
 
 Test the model for 10 times in parallel and calculate the average score
 
+Try `python test.py --help` to get more information.
+
 ```
 python test.py
 ```
 
 ### Demo 
 
-![Demo](https://github.com/hzwer/NIPS2017-LearningToRun/raw/master/demo/hzwer-NIPS2017-LearningToRun.gif)
+![Demo](https://github.com/hzwer/NIPS2017-LearningToRun/raw/master/demo/hzwer-NIPS2017-LearningToRun-small.gif)
 

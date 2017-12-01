@@ -19,7 +19,7 @@ def standalone_headless_isolated(pq, cq, plock):
     try:
         import traceback
         from osim.env import RunEnv
-        e = RunEnv(visualize = args.visualize,obstacles=args.obstacles)
+        e = RunEnv(visualize = args.visualize,max_obstacles=args.obstacles)
     except Exception as e:
         print('error on start of standalone')
         traceback.print_exc()
