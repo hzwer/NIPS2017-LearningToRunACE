@@ -26,8 +26,6 @@ import timeit
 from multi import fastenv
 from farmer import farmer as farmer_class
 import itertools
-farmer = farmer_class()
-graph = tf.get_default_graph()
 
 
 class Game(object):
@@ -52,10 +50,11 @@ class Game(object):
     import threading as th
     lock = th.Lock()
 
-    for i in range(args.num_actors):
-        actor.append(ActorNetwork(sess, state_dim, action_dim, 0, 0, 0))
-    for i in range(args.num_critics):
-        critic.append(CriticNetwork(sess, state_dim, action_dim, 0, 0, 0))
+    def __init__(self):
+        for i in range(args.num_actors):
+            self.actor.append(ActorNetwork(self.sess, self.state_dim, self.action_dim, 0, 0, 0))
+        for i in range(args.num_critics):
+            self.critic.append(CriticNetwork(self.sess, self.state_dim, self.action_dim, -1, 0, 0))
     
     def play(self, env, cnt):
         step = 0        
@@ -151,28 +150,30 @@ class Game(object):
     
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(help = "test the models performance")
-    parser.add_argument("--num_state",
-            help="number of states",
-            type=int,
-            default=1,
-            )
-    parser.add_argument("--num_actors",
+    parser = argparse.ArgumentParser(description = "test the models performance")
+    parser.add_argument("--num_actors",'-a',
             help="number of actors",
             type=int,
             default=1,
             )
-    parser.add_argument("--num_critics",
+    parser.add_argument("--num_critics",'-c',
             help="number of critics",
             type=int,
             default=1,
             )
-    parser.add_argument("--path",
+    parser.add_argument("--path",'-p',
             help="path of models",
             default='logs',
             type=str,
             )
+    parser.add_argument("--times",'-t',
+            help="test times",
+            default='10',
+            type=int,
+            )
     args = parser.parse_args()
+    farmer = farmer_class()
+    graph = tf.get_default_graph()
 
     t = Game()
     if(t.pre() == False):
