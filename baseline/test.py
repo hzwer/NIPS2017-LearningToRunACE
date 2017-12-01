@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
+
 import os
 os.environ['KERAS_BACKEND'] = 'tensorflow'
+import tensorflow as tf
 import keras.backend as K
 K.set_image_dim_ordering('tf')
 from osim.env import RunEnv
@@ -23,11 +25,10 @@ import timeit
 
 from multi import fastenv
 from farmer import farmer as farmer_class
+import itertools
 farmer = farmer_class()
 graph = tf.get_default_graph()
-actor_num = 1
-critic_num = 1
-import itertools
+
 
 class Game(object):
     #Tensorflow GPU optimization
@@ -51,9 +52,9 @@ class Game(object):
     import threading as th
     lock = th.Lock()
 
-    for i in range(actor_num):
+    for i in range(args.num_actors):
         actor.append(ActorNetwork(sess, state_dim, action_dim, 0, 0, 0))
-    for i in range(critic_num):
+    for i in range(args.num_critics):
         critic.append(CriticNetwork(sess, state_dim, action_dim, 0, 0, 0))
     
     def play(self, env, cnt):
@@ -66,12 +67,12 @@ class Game(object):
             global graph
             ACT = []
             pre_reward = []
-            for i in range(actor_num):
+            for i in range(args.num_actors):
                 pre_reward.append(0.)
             with graph.as_default():
-                for i in range(actor_num):
+                for i in range(args.num_actors):
                     ACT.append(self.actor[i].model.predict(np.array([s_t]))[0])
-                    for j in range(critic_num):
+                    for j in range(args.num_critics):
                         pre_reward[i] += (self.critic[j].model.predict([np.array([s_t]), np.array([ACT[i]])])[0])
             self.lock.release()
             best = np.argmax(pre_reward)
@@ -82,7 +83,7 @@ class Game(object):
             sp += pen
             s_t = s_t1
             step += 1
-            if step % 10 == 0:
+            if step % 100 == 0:
                 print("Episode", cnt, "Step", step, "Reward", total_reward)
             if done or step == 1000 / 1:
                 self.lock.acquire()
@@ -126,10 +127,10 @@ class Game(object):
     def pre(self):        
         print("Now we load the weight")
         try:
-            for i in range(actor_num):                
-                self.actor[i].model.load_weights("logs/actormodel{}.h5".format(i + 1))
-            for i in range(critic_num):
-                self.critic[i].model.load_weights("logs/criticmodel{}.h5".format(i + 1))
+            for i in range(args.num_actors):                
+                self.actor[i].model.load_weights(os.path.join(args.path,"actormodel{}.h5".format(i + 1)))
+            for i in range(args.num_critics):
+                self.critic[i].model.load_weights(os.path.join(args.path,"criticmodel{}.h5".format(i + 1)))
             print("Weight load successfully")
         except:
             return False
@@ -142,13 +143,37 @@ class Game(object):
         done = False
         LOSS = 0
         
-        for T in range(10):
+        for T in range(args.times):
             self.playifavailable(T)
-        while(self.RUNTIME < 10):
+        while(self.RUNTIME < args.times):
             sleep(1)
-        print("Finish.", self.TOTREWARD / 10)
+        print("Finish. The average reward is :", self.TOTREWARD / args.times)
     
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(help = "test the models performance")
+    parser.add_argument("--num_state",
+            help="number of states",
+            type=int,
+            default=1,
+            )
+    parser.add_argument("--num_actors",
+            help="number of actors",
+            type=int,
+            default=1,
+            )
+    parser.add_argument("--num_critics",
+            help="number of critics",
+            type=int,
+            default=1,
+            )
+    parser.add_argument("--path",
+            help="path of models",
+            default='logs',
+            type=str,
+            )
+    args = parser.parse_args()
+
     t = Game()
     if(t.pre() == False):
         exit()
