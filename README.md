@@ -4,7 +4,7 @@ A keras solution for 2nd place [NIPS RL 2017 challenge](https://www.crowdai.org/
 
 More details will be added in a few days.
 
-There is a [slide](https://drive.google.com/open?id=1CgSrJzknOp-G9iOwnerTiTdc64-OiSSe) about our work.
+There is a [slide](https://drive.google.com/file/d/15u1mes5nguoQVJfINt1ZkrCbyt_ed32-/view?usp=sharing) and a [lecture](https://docs.google.com/document/d/1e4dobq7SenCNV3KolZd3Oj71LT2X-JBaXmCxkYknmxg/edit) about our work.
 
 ## To Run
 ### preparation
