@@ -2,10 +2,11 @@
 
 A keras solution for 2nd place [NIPS RL 2017 challenge](https://www.crowdai.org/challenges/nips-2017-learning-to-run/leaderboards?challenge_round_id=12).
 
-There is a [slide](https://drive.google.com/file/d/1_0DWZVq-PW_grBK3smo_DaqIRiOUOV5E/view?usp=sharing) about our work.
+There is a [slide](https://drive.google.com/file/d/1_0DWZVq-PW_grBK3smo_DaqIRiOUOV5E/view?usp=sharing) and a [lecture](https://docs.google.com/document/d/1e4dobq7SenCNV3KolZd3Oj71LT2X-JBaXmCxkYknmxg/edit) about our work.
 
 ## To Run
 ### preparation
+
 These instructions expect that opensim-rl conda environment is already setup as described in : https://github.com/stanfordnmbl/osim-rl/ .
 
 ```
