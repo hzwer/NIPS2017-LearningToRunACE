@@ -46,9 +46,26 @@ class Game(object):
     actor = []
     critic = []
     mx = 0
+    LOG = 0
+    log_path = './logs'
     
     import threading as th
     lock = th.Lock()
+    
+    callback = TensorBoard(log_path)
+    
+    def write_log(self, callback, names, logs, batch_no):
+        output = open('logs/data.txt', 'w')
+        output.write(str(self.LOG) + ' ' + str(self.trainnum))
+        output.close()
+        for name, value in zip(names, itertools.repeat(logs)):
+            summary = tf.Summary()
+            summary_value = summary.value.add()
+            summary_value.simple_value = value
+            summary_value.tag = name
+            callback.writer.add_summary(summary, batch_no)
+            callback.writer.flush()
+        callback = TensorBoard(self.log_path)
 
     def __init__(self):
         for i in range(args.num_actors):
@@ -95,6 +112,10 @@ class Game(object):
                 print("Episode", cnt, "Step", step, "Reward", total_reward, "penalty", sp, "falloff", self.falloff)
                 self.RUNTIME = self.RUNTIME + 1
                 print("totstep", self.TOTSTEP, "totreward", self.TOTREWARD / self.RUNTIME)
+                train_names = ['reward']
+                self.lock.acquire()
+                self.LOG = self.LOG + 1
+                self.write_log(self.callback, train_names, total_reward, self.LOG)
                 self.lock.release()
                 break
 
@@ -168,7 +189,7 @@ if __name__ == "__main__":
             )
     parser.add_argument("--times",'-t',
             help="test times",
-            default='10',
+            default='1',
             type=int,
             )
     args = parser.parse_args()
