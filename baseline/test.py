@@ -55,9 +55,6 @@ class Game(object):
     callback = TensorBoard(log_path)
     
     def write_log(self, callback, names, logs, batch_no):
-        output = open('logs/data.txt', 'w')
-        output.write(str(self.LOG) + ' ' + str(self.trainnum))
-        output.close()
         for name, value in zip(names, itertools.repeat(logs)):
             summary = tf.Summary()
             summary_value = summary.value.add()
@@ -70,6 +67,7 @@ class Game(object):
     def __init__(self):
         for i in range(args.num_actors):
             self.actor.append(ActorNetwork(self.sess, self.state_dim, self.action_dim, 0, 0, 0))
+        self.callback.set_model(self.actor[0].model)
         for i in range(args.num_critics):
             self.critic.append(CriticNetwork(self.sess, self.state_dim, self.action_dim, -1, 0, 0))
     
@@ -113,7 +111,6 @@ class Game(object):
                 self.RUNTIME = self.RUNTIME + 1
                 print("totstep", self.TOTSTEP, "totreward", self.TOTREWARD / self.RUNTIME)
                 train_names = ['reward']
-                self.lock.acquire()
                 self.LOG = self.LOG + 1
                 self.write_log(self.callback, train_names, total_reward, self.LOG)
                 self.lock.release()
