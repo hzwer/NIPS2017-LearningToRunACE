@@ -2,7 +2,7 @@
 
 A keras solution for 2nd place [NIPS RL 2017 challenge](https://www.crowdai.org/challenges/nips-2017-learning-to-run/leaderboards?challenge_round_id=12).
 
-There is a [slide](https://docs.google.com/presentation/d/1dgXDFlr62jQ-OdEoYVCGwuUgux3u-jrMaXVp94OVOSk/edit?usp=sharing), a [lecture](https://docs.google.com/document/d/1e4dobq7SenCNV3KolZd3Oj71LT2X-JBaXmCxkYknmxg/edit) and a [writeup](https://www.overleaf.com/read/rtgnczwqjmcm) about our work.
+There is a [slide](https://docs.google.com/presentation/d/1dgXDFlr62jQ-OdEoYVCGwuUgux3u-jrMaXVp94OVOSk/edit?usp=sharing), a [lecture](https://docs.google.com/document/d/1e4dobq7SenCNV3KolZd3Oj71LT2X-JBaXmCxkYknmxg/edit) and a [writeup(arxiv)](https://arxiv.org/abs/1712.08987) about our work.
 
 ## To Run
 ### preparation
