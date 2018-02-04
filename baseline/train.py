@@ -195,6 +195,7 @@ class Game(object):
         self.critic.target_model.save_weights("logs/criticmodel.h5", overwrite=True)
         self.actor.target_model.save_weights("logs/actormodel{}.h5".format(self.modelcnt))
         self.critic.target_model.save_weights("logs/criticmodel{}.h5".format(self.modelcnt))
+        self.rpm.save("logs/rpm.pickle")
         print("save")
   
     def pre(self):
