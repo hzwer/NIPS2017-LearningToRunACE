@@ -45,7 +45,7 @@ Thanks to @ctmakro for providing us with this frame.
 
 Test the model in parallel and calculate the average score.
 
-We provide you with some [trained parameters](https://drive.google.com/file/d/1aQuegutOwIJmKP7E7DbtZKYhYW9sEov4/view?usp=sharing) .
+We provide you with some [trained parameters](https://drive.google.com/open?id=10RDVQA5zjUjNXz7Igak3k92_s_XKI2Uw).
 
 ```
 python test.py -a=10 -c=5 -t=200 -p logs
