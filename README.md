@@ -1,5 +1,7 @@
 # NIPS2017-LearningToRun
 
+![Demo](https://github.com/hzwer/NIPS2017-LearningToRun/raw/master/demo/hzwer-NIPS2017-LearningToRun-small.gif)
+
 A keras solution for 2nd place [NIPS RL 2017 challenge](https://www.crowdai.org/challenges/nips-2017-learning-to-run/leaderboards?challenge_round_id=12).
 
 There is a [slide](https://docs.google.com/presentation/d/1dgXDFlr62jQ-OdEoYVCGwuUgux3u-jrMaXVp94OVOSk/edit?usp=sharing), a [lecture](https://docs.google.com/document/d/1e4dobq7SenCNV3KolZd3Oj71LT2X-JBaXmCxkYknmxg/edit) and a [writeup(arxiv)](https://arxiv.org/abs/1712.08987) about our work.
@@ -57,12 +59,11 @@ python test.py -a=10 -c=5 -t=200 -p logs
 
 Try `python test.py --help` to get more information .
 
-## Demo
-
-![Demo](https://github.com/hzwer/NIPS2017-LearningToRun/raw/master/demo/hzwer-NIPS2017-LearningToRun-small.gif)
-
 ## Contributors
 
 - [hzwer](https://github.com/hzwer)
 - [floz](https://github.com/NewGod)
+
+## Resources
+[Official YouTube demos](https://www.youtube.com/watch?v=rhNxt0VccsE)
 
