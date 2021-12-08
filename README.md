@@ -66,5 +66,5 @@ Try `python test.py --help` to get more information .
 
 ## Resources
 [Official YouTube demos](https://www.youtube.com/watch?v=rhNxt0VccsE)
-[A Chinese interview](https://www.leiphone.com/news/201711/b2OfTdcMUmpYKx6S.html)
+[赛后专访](https://www.leiphone.com/news/201711/b2OfTdcMUmpYKx6S.html)
 
