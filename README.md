@@ -1,4 +1,4 @@
-# NIPS2017-LearningToRun
+# NIPS2017-LearningToRun with ACE
 
 ![Demo](https://github.com/hzwer/NIPS2017-LearningToRun/raw/master/demo/hzwer-NIPS2017-LearningToRun-small.gif)
 
