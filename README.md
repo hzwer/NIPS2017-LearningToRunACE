@@ -1,4 +1,5 @@
 # NIPS2017-LearningToRun with ACE
+[Zhewei Huang](https://scholar.google.com/citations?user=zJEkaG8AAAAJ&hl=zh-CN&oi=sra), [Shuchang Zhou](https://scholar.google.com/citations?user=zYI0rysAAAAJ&hl=zh-CN&oi=sra), BoEr Zhuang, [Xinyu Zhou](https://scholar.google.com/citations?user=Jv4LCj8AAAAJ&hl=zh-CN&oi=ao)
 
 ![Demo](https://github.com/hzwer/NIPS2017-LearningToRun/raw/master/demo/hzwer-NIPS2017-LearningToRun-small.gif)
 
