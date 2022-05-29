@@ -68,4 +68,4 @@ Try `python test.py --help` to get more information .
 ## Resources
 - [Official YouTube demos](https://www.youtube.com/watch?v=rhNxt0VccsE)
 - [赛后专访](https://www.leiphone.com/news/201711/b2OfTdcMUmpYKx6S.html)
-- Also a teaser video from the winning team https://www.bilibili.com/video/BV1jE411B74u?spm_id_from=333.337.search-card.all.click
+- Also a teaser video from the winning team https://www.bilibili.com/video/BV1jE411B74u
