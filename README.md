@@ -25,7 +25,7 @@ Other dependencies is needed as follow
 * parse
 * pymsgbox(optional)
 
-### parllelism
+### parallelism
 
 This version requires farming, before starting `train.py`, you should first start some farms by running `python farm.py` on each <u>SLAVE</u> machine you own. Then  create a `farmlist.py` in the working directory (on the <u>HOST</u> machine) with the following content :
 
@@ -66,7 +66,6 @@ Try `python test.py --help` to get more information .
 - [floz](https://github.com/NewGod)
 
 ## Resources
-[Official YouTube demos](https://www.youtube.com/watch?v=rhNxt0VccsE)
-
-[赛后专访](https://www.leiphone.com/news/201711/b2OfTdcMUmpYKx6S.html)
-
+- [Official YouTube demos](https://www.youtube.com/watch?v=rhNxt0VccsE)
+- [赛后专访](https://www.leiphone.com/news/201711/b2OfTdcMUmpYKx6S.html)
+- Also a teaser video from the winning team https://www.bilibili.com/video/BV1jE411B74u?spm_id_from=333.337.search-card.all.click
